@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API for managing personal budget and custom say keyword function.",
+    "version": "1.0.1",
+    "title": "Personal Budget API with Keyword Function"
+  },
+  "host": "142.93.207.86:5000",  // Your Digital Ocean IP
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "items",
+      "description": "Operations on budget items"
+    },
+    {
+      "name": "say",
+      "description": "Say a keyword"
+    }
+  ],
+  "paths": {
+    "/items": {
+      "get": {
+        "tags": ["items"],
+        "summary": "Retrieve all items",
+        "responses": {
+          "200": {
+            "description": "A list of all budget items"
+          }
+        }
+      }
+    },
+    "/say": {
+      "get": {
+        "tags": ["say"],
+        "summary": "Responds with a keyword",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "The keyword to be echoed back"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sri Charan Murukutla says [keyword]"
+          },
+          "400": {
+            "description": "No keyword provided"
+          }
+        }
+      }
+    }
+  }
+}
